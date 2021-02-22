@@ -1,4 +1,21 @@
-# Cassandra - Pulsar Example
+# Pulsar to Cassandra with Covid19
+
+![pulsar to cassandra](./covid_with_pulsar.png "diagram")
+
+## Step 0: Requirements
+
+* Install Docker
+* Make sure your docker has enough Juice
+
+![alt text](./docker_setting.jpg "Docker settings")
+
+1. Right click on Docker Desktop icon
+1. Select Preferences
+1. Select Resources
+1. Set CPUs = 4
+1. Set Memory to at least 4GB
+1. Press the Apply & Restart button to make the changes.
+
 
 ## Step 1: Make sure you have docker installed and running on your machine!
 
