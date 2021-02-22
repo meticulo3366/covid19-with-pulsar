@@ -1,2 +1,6 @@
 data/*
 python_client/data/*
+secure-connect-*.zip
+cassandra-enhanced-pulsar-sink-1.4.0/
+cassandra-enhanced-pulsar-sink.tar.gz
+connectors

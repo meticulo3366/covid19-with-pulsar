@@ -22,17 +22,7 @@ client = pulsar.Client('pulsar://pulsar:6650')
 
 producer = client.create_producer(topic='covid19',schema=AvroSchema(Covid19))
 
-# for i in range(10):
-#     producer.send(('Hello-%d' % i).encode('utf-8'))
-
-
-
-
-#if you want to run outside of docker, simply change bootstrap_servers="localhost:29092"
-
-# Here we connect to the kafka cluster and grab just one record, all covid data is a giant data dump, we are converting into a stream
-# we will also be producing our records
-#producer = KafkaProducer(bootstrap_servers="kafka:9092", key_serializer=str.encode,value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+#parse the covid19 data
 
 count=0
 for key in covid:
