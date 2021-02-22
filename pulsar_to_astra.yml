@@ -13,13 +13,13 @@ configs:
   jmx: true
   compression: None
   auth:
-    # provider: None
-    username: zekedean
-    password: ********
-    # gssapi:
-    #   keyTab:
-    #   principal:
-    #   service: dse
+    provider: None
+    username: "zekedean"
+    password: "********"
+    gssapi:
+      keyTab:
+      principal:
+      service: dse
   topic:
       covid19:
           zekedean:

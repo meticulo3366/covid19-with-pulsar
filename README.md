@@ -65,8 +65,34 @@ You should get output like the below
 docker run  -ti --network pulsar-demo -v `pwd`/python_client:/usr/src/app   apachepulsar/pulsar  python3.7 /usr/src/app/covid19_datacleaner.py
 ```
 
+## Step 9: Load the data into Cassandra
 
-## Step 9: Send to Cassandra
+```
+CREATE TABLE IF NOT EXISTS covid19 (
+  	country text ,
+  	confirmed int,
+  	deaths int,
+  	recovered int,
+  	date text PRIMARY KEY,
+)
+```
+
+
+## Step 10: Send to Cassandra (with Python)
+
+### First export your Astra username and password as an environment variable  
+
+```
+export ASTRA_USER=blahblah
+export ASTRA_PASS=blahblah
+```
+### Now process the data and send to astra
+
+```
+docker run  -e ASTRA_USER=$ASTRA_USER -e ASTRA_PASS=$ASTRA_PASS -ti --network pulsar-demo -v `pwd`:/usr/src/app   apachepulsar/pulsar  /usr/src/app/pulsar_client_to_astra.sh
+```
+
+## (optional): Send to Cassandra (With Pulsar Functions) (not currently working)
 
 ```
 docker run  -ti --network pulsar-demo -v `pwd`:/usr/src/app   apachepulsar/pulsar /usr/src/app/pulsar_to_astra_localrun.sh
@@ -76,7 +102,12 @@ You should get output like the below
 
 *"Created successfully"*
 
-## Step 10: Display in Cassandra
+## Step 10: Display in Astra Studio
 
+```
+select * from covid19
+```
+
+### Do some visualizations!
 
 
