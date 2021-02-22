@@ -25,13 +25,13 @@ mkdir connectors
 ```
 
 
-## Step 5: Move the contents of the package
+## Step 6: Move the contents of the package
 
 ```
 mv cassandra-enhanced-pulsar-sink-1.4.0/cassandra-enhanced-pulsar-sink-1.4.0.nar connectors/cassandra-enhanced-pulsar-sink-1.4.0.nar
 ```
 
-## Step 3: Turn on pulsar (may take a long time) (2GB!)
+## Step 7: Turn on pulsar (may take a long time) (2GB!)
 
 ```
 docker run -v `pwd`/connectors:/pulsar/connectors --rm --network pulsar-demo -d -p 6650:6650 -p 8080:8080 --name pulsar apachepulsar/pulsar-standalone
@@ -59,24 +59,24 @@ You should get output like the below
 
 *[{"name":"cassandra-enhanced","description":"A DataStax Pulsar Sink to load records from Pulsar topics to Apache Cassandra(R) or DataStax Enterprise(DSE)\n","sinkClass":"com.datastax.oss.sink.pulsar.RecordCassandraSinkTask"}]*
 
-## Step 4: Load the Covid19 data into Pulsar
+## Step 8: Load the Covid19 data into Pulsar
 
 ```
 docker run  -ti --network pulsar-demo -v `pwd`/python_client:/usr/src/app   apachepulsar/pulsar  python3.7 /usr/src/app/covid19_datacleaner.py
 ```
 
 
-## Step 6: Send to Cassandra
+## Step 9: Send to Cassandra
 
 ```
-docker run  -ti --network pulsar-demo -v `pwd`:/usr/src/app   apachepulsar/pulsar /usr/src/app/pulsar_to_astra.sh
+docker run  -ti --network pulsar-demo -v `pwd`:/usr/src/app   apachepulsar/pulsar /usr/src/app/pulsar_to_astra_localrun.sh
 ```
 
 You should get output like the below
 
 *"Created successfully"*
 
-## Step 6: Display in Cassandra
+## Step 10: Display in Cassandra
 
 
 

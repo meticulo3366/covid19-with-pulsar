@@ -1,13 +1,10 @@
 configs:
-  host: "pulsar"
-  verbose: false
+  verbose: true
   batchSize: 3000
   batchFlushTimeoutMs: 1000
   topics: covid19
-  #contactPoints: localhost
-  # loadBalancing.localDc: Cassandra
   port: 9042
-  cloud.secureConnectBundle: /usr/src/app/secure-connect-bundle.zip
+  cloud.secureConnectBundle: /usr/src/app/secure-connect-zekedean.zip
   ignoreErrors: None
   maxConcurrentRequests: 500
   maxNumberOfRecordsInBatch: 32
@@ -16,28 +13,15 @@ configs:
   jmx: true
   compression: None
   auth:
-    provider: None
-    username: "zekedean"
-    password: "zekedean"
-    gssapi:
-      keyTab:
-      principal:
-      service: dse
-  # ssl:
-  #   provider: None
-  #   hostnameValidation: true
-  #   keystore:
-  #     password:
-  #     path:
-  #   openssl:
-  #     keyCertChain:
-  #     privateKey:
-  #   truststore:
-  #     password:
-  #     path:
-  #   cipherSuites:
+    # provider: None
+    username: zekedean
+    password: ********
+    # gssapi:
+    #   keyTab:
+    #   principal:
+    #   service: dse
   topic:
       covid19:
           zekedean:
               covid19:
-                  mapping: 'date=key, name=value.name, confirmed=value.confirmed, deaths=value.deaths, recovered=value.recovered, country=value.country'
+                  mapping: 'date=key, confirmed=value.confirmed, deaths=value.deaths, recovered=value.recovered, country=value.country'
