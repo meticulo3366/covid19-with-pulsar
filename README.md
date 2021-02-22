@@ -2,9 +2,9 @@
 
 ![pulsar to cassandra](./covid_with_pulsar.png "diagram")
 
-## Step 0: Requirements
+## Step 1: Make sure you have docker installed and running on your machine!
 
-* Install Docker
+* [Install Docker](https://www.docker.com/products/docker-desktop)
 * Make sure your docker has enough Juice
 
 ![alt text](./docker_setting.jpg "Docker settings")
@@ -15,9 +15,6 @@
 1. Set CPUs = 4
 1. Set Memory to at least 4GB
 1. Press the Apply & Restart button to make the changes.
-
-
-## Step 1: Make sure you have docker installed and running on your machine!
 
 ## Step 2: Create the network
 
