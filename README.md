@@ -45,19 +45,7 @@ mkdir connectors
 mv cassandra-enhanced-pulsar-sink-1.4.0/cassandra-enhanced-pulsar-sink-1.4.0.nar connectors/cassandra-enhanced-pulsar-sink-1.4.0.nar
 ```
 
-## Step 7: Create the keyspace and cassandra table
-
-```
-CREATE TABLE IF NOT EXISTS covid19 (
-  	country text ,
-  	confirmed int,
-  	deaths int,
-  	recovered int,
-  	date text PRIMARY KEY,
-)
-```
-
-## Step 8: Turn on pulsar (may take a long time) (2GB!)
+## Step 7: Turn on pulsar (may take a long time) (2GB!)
 
 ```
 docker run -v `pwd`/connectors:/pulsar/connectors --rm --network pulsar-demo -d -p 6650:6650 -p 8080:8080 --name pulsar apachepulsar/pulsar-standalone
@@ -87,7 +75,7 @@ You should get output like the below
 
 
 
-## Step 9: Load the data into Cassandra
+## Step 8: Create the cassandra Keyspace and Table
 
 ```
 CREATE KEYSPACE IF NOT EXISTS zekedean
@@ -108,7 +96,7 @@ CREATE TABLE IF NOT EXISTS covid19 (
 ```
 
 
-## Step 10: Turn on the Pulsar Consumer (with Python)
+## Step 9: Turn on the Pulsar Consumer (with Python)
 
 ### First export your Astra username and password as an environment variable  
 
@@ -132,7 +120,7 @@ You should get output like the below
 
 *"Created successfully"*
 
-## Step 11: Load the Covid19 data into Pulsar
+## Step 10: Load the Covid19 data into Pulsar
 
 ```
 docker run  -ti --network pulsar-demo -v `pwd`/python_client:/usr/src/app   apachepulsar/pulsar  python3.7 /usr/src/app/covid19_datacleaner.py
@@ -153,7 +141,7 @@ docker stop astra-client
 docker rm astra-client
 ```
 
-## Step 12: Display in Astra Studio
+## Step 11: Display in Astra Studio
 
 ```
 select * from covid19
