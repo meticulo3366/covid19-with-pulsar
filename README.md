@@ -63,7 +63,7 @@ You should get something like the below in the logs
 
 *23:26:24.517 [main] INFO  org.apache.pulsar.broker.PulsarService - messaging service is ready*
 
-## Validate the Cassandra Enhanced Connector is running
+### Validate the Cassandra Enhanced Connector is running
 
 ```
 curl -s http://localhost:8080/admin/v2/functions/connectors
