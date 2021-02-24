@@ -7,4 +7,3 @@ bin/pulsar-admin --admin-url http://pulsar:8080 sinks localrun \
 	--tenant public \
 	--namespace default \
 	--inputs covid19 
-	#--inputs "persistent://public/default/covid19"

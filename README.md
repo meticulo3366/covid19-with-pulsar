@@ -91,10 +91,12 @@ CREATE TABLE IF NOT EXISTS covid19 (
   	confirmed int,
   	deaths int,
   	recovered int,
-  	date text PRIMARY KEY,
-)
+  	date text,
+  	PRIMARY KEY((country),date)
+);
 ```
 
+Primary Key is country, clustering collum is date
 
 ## Step 9: Turn on the Pulsar Consumer (with Python)
 
@@ -143,8 +145,16 @@ docker rm astra-client
 
 ## Step 11: Display in Astra Studio
 
+Do some querying!
+
+
+Get all confirmed covid cases for that day to date
 ```
-select * from covid19
+Select sum(confirmed) from  acovid19 where date='2021-02-20'   ALLOW FILTERING;
+```
+
+```
+Select * from  covid19 where date='2020-12-01' and country='Zimbabwe'  ALLOW FILTERING;
 ```
 
 ### Do some visualizations!

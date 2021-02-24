@@ -27,7 +27,7 @@ cloud_config = {
     'secure_connect_bundle': '/usr/src/app/secure-connect-'+astra_user+'.zip'
 }
 auth_provider = PlainTextAuthProvider(username=astra_user, password=os.environ.get('ASTRA_PASS'))
-# auth_provider = PlainTextAuthProvider(username='zekedean', password='zekedean')
+
 cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 session = cluster.connect()
 session = cluster.connect('zekedean')
