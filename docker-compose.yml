@@ -1,0 +1,22 @@
+
+version: "2"
+services:
+
+
+  elasticsearch:
+    hostname: elasticsearch
+    image: nshou/elasticsearch-kibana
+    ports:
+      - "9200:9200"
+      - "5601:5601"
+
+  pulsar:
+    hostname: pulsar
+    image: apachepulsar/pulsar-standalone
+    depends_on:
+      - elasticsearch
+    ports:
+      - "6650:6650"
+      - "8080:8080"
+    links:
+      - elasticsearch

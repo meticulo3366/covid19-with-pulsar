@@ -1,0 +1,3 @@
+configs:
+    elasticSearchUrl: "http://elasticsearch:9200"
+    indexName: "my_index"
