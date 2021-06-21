@@ -52,7 +52,7 @@ docker run  -ti --network covid19-with-pulsar_default -v `pwd`/python_client:/us
 ## Step 6: Turn on the elastic search connector
 
 ```
-docker run  -ti --network covid19-with-pulsar_default -v `pwd`:/usr/src/app   apachepulsar/pulsar /usr/src/app/pulsar_to_elasticsearch_localrun.sh.sh
+docker run  -ti --network covid19-with-pulsar_default -v `pwd`:/usr/src/app   apachepulsar/pulsar /usr/src/app/pulsar_to_elasticsearch_localrun.sh
 ```
 
 ## Step 7: Open another tab

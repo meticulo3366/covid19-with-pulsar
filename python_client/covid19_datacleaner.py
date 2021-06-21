@@ -20,7 +20,7 @@ with urllib.request.urlopen("https://pomber.github.io/covid19/timeseries.json") 
 
 client = pulsar.Client('pulsar://pulsar:6650')
 
-producer = client.create_producer(topic='covid19',schema=AvroSchema(Covid19))
+producer = client.create_producer(topic='covid19',schema=JsonSchema(Covid19))
 
 #parse the covid19 data
 
@@ -38,7 +38,7 @@ for key in covid:
 
         #we are sending our records to a new topic called covid19US
         record = Covid19(date=i['date'],country=i['country'],confirmed=i['confirmed'],deaths=i['deaths'],recovered=i['recovered'] )
-        producer.send( partition_key=record_date, content=record ) 
+        producer.send( content=record ) 
         count+=1
 
 print( str(count) + " Covid19 Records Loaded into Apache Pulsar!")
