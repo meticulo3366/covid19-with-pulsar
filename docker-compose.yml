@@ -12,7 +12,7 @@ services:
 
   pulsar:
     hostname: pulsar
-    image: apachepulsar/pulsar-standalone
+    image: apachepulsar/pulsar-standalone:2.7.2
     depends_on:
       - elasticsearch
     ports:
